@@ -1,0 +1,29 @@
+extends ../layouts/master
+
+block content
+    .content-wrapper
+        // Content Header (Page header)
+        .content-header
+            .container-fluid
+                .row.mb-2
+                    .col-sm-6
+                        h1.m-0 Data Kartu Keluarga
+                    .col-sm-6
+                        ol.breadcrumb.float-sm-right
+                            li.breadcrumb-item
+                                a(href='#') Home
+                            li.breadcrumb-item.active Starter Page
+        // Main content
+        .content
+            .container-fluid
+                .card-body
+                     form(method='post', action="/fam-card/store")
+                        input(type='hidden', name='_token')
+                        .card-body
+                            .form-group
+                                label(for='no-kk') Nomor Kartu Keluarga
+                                input(type='text', class='form-control', name='no', id='no-kk', placeholder='Contoh : 3215069871627772', autofocus='', maxlength='16')
+                            .form-group
+                                label(for='kepala') Nama Kepala Keluarga
+                                input(type='text', class='form-control', id='kepala', name='KepalaKeluarga', placeholder='Contoh : Nathaniel Valentino Robert', autofocus='', maxlength='100')
+                        button.btn.btn-primary(type='submit') Submit
