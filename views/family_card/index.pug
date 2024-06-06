@@ -1,0 +1,39 @@
+extends ../layouts/master
+
+block content
+    div.content-header
+        div.container-fluid
+            div.row.mb-2
+                div.col-sm-6
+                    h1.m-0 Family Card Data
+                div.col-sm-6
+                    ol.breadcrumb.float-sm-right
+                        li.breadcrumb-item
+                            a(href="/") Dashboard
+                        li.breadcrumb-item.active Family Card Data
+    div.content
+        div.container-fluid
+            div.card
+                div.card-body
+                    div.table-responsive
+                        table.table.table-striped(id = "table-fam-card")
+                            thead
+                                tr
+                                    th ID
+                                    th Name
+                            tbody
+                                each familyCard in familyCards
+                                    tr
+                                        td #{familyCard.id}
+                                        td #{familyCard.name}
+
+
+block add-js
+    script(src="/plugins/datatables/jquery.dataTables.min.js")
+    script.
+        $(function () {
+            $('#table-fam-card').DataTable()
+        })
+
+block add-css
+    link(rel="stylesheet", href="/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css")
